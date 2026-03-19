@@ -1,0 +1,19 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Curso SC-701</div>
+        <div class="masthead-heading text-uppercase">Frontend Razor Pages para Producto.API</div>
+    </div>
+</header>
+<section class="page-section" id="principal">
+<div class="text-center">
+    <h1 class="section-heading text-uppercase">Gestión de productos</h1>
+    <h3 class="section-subheading text-muted">Listado, detalle, creación, edición y eliminación consumiendo el API local.</h3>
+    <a class="btn btn-primary btn-lg mt-3" asp-page="/Productos/Index">Ir a productos</a>
+</div>
+</section>

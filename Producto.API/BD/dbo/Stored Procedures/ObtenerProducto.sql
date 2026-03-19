@@ -13,6 +13,7 @@ BEGIN
 	SELECT
 		p.Id,
 		p.IdSubCategoria,
+		c.Id AS IdCategoria,
 		p.Nombre,
 		p.Descripcion,
 		p.Precio,

@@ -1,0 +1,46 @@
+@page "{id:guid}"
+@model DetalleModel
+@{
+    ViewData["Title"] = "Detalle del producto";
+}
+
+<header class="subhead">
+    <div class="container">
+        <div class="masthead-subheading">SC-701: Programación Web Avanzada</div>
+        <div class="masthead-heading text-uppercase">Detalle del producto</div>
+    </div>
+</header>
+
+<section class="page-section" id="principal">
+    <div class="container" style="max-width: 900px;">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Información del producto</h2>
+            <h3 class="section-subheading text-muted">Datos obtenidos directamente desde Producto.API.</h3>
+        </div>
+
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h4 class="card-title mb-4">@Model.Producto.Nombre</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Categoría:</strong> @Model.Producto.Categoria</p>
+                        <p><strong>Subcategoría:</strong> @Model.Producto.SubCategoria</p>
+                        <p><strong>Stock:</strong> @Model.Producto.Stock</p>
+                        <p><strong>Código de barras:</strong> @Model.Producto.CodigoBarras</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Precio CRC:</strong> @Model.Producto.Precio.ToString("N2")</p>
+                        <p><strong>Precio USD:</strong> @Model.Producto.PrecioUSD.ToString("N2")</p>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <strong>Descripción</strong>
+                    <p class="mb-0">@Model.Producto.Descripcion</p>
+                </div>
+            </div>
+        </div>
+
+        <a class="btn btn-primary" asp-page="./Index">Regresar</a>
+        <a class="btn btn-warning" asp-page="./Editar" asp-route-id="@Model.Producto.Id">Editar</a>
+    </div>
+</section>

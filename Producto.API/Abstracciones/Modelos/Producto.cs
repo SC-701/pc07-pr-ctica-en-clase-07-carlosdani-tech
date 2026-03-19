@@ -39,6 +39,12 @@ namespace Abstracciones.Modelos
         [Required(ErrorMessage = "La propiedad id es requerida")]
         public Guid Id { get; set; }
 
+        [Required(ErrorMessage = "La propiedad idSubCategoria es requerida")]
+        public Guid IdSubCategoria { get; set; }
+
+        [Required(ErrorMessage = "La propiedad idCategoria es requerida")]
+        public Guid IdCategoria { get; set; }
+
         [Required(ErrorMessage = "La propiedad subCategoria es requerida")]
         [StringLength(100, MinimumLength = 2, ErrorMessage = "La propiedad subCategoria debe tener entre 2 y 100 caracteres")]
         public string SubCategoria { get; set; } = null!;
@@ -52,5 +58,18 @@ namespace Abstracciones.Modelos
     {
         [JsonPropertyOrder(2)]
         public decimal PrecioUSD { get; set; }
+    }
+
+    public class Categoria
+    {
+        public Guid Id { get; set; }
+        public string Nombre { get; set; } = null!;
+    }
+
+    public class SubCategoria
+    {
+        public Guid Id { get; set; }
+        public Guid IdCategoria { get; set; }
+        public string Nombre { get; set; } = null!;
     }
 }

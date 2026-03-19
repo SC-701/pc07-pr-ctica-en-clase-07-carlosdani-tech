@@ -77,6 +77,23 @@ namespace DA.Repositorios
             return resultadoConsulta.FirstOrDefault();
         }
 
+        public async Task<IEnumerable<Categoria>> ObtenerCategorias()
+        {
+            string query = @"ObtenerCategorias";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<Categoria>(query);
+            return resultadoConsulta;
+        }
+
+        public async Task<IEnumerable<SubCategoria>> ObtenerSubCategorias(Guid idCategoria)
+        {
+            string query = @"ObtenerSubCategoriasPorCategoria";
+            var resultadoConsulta = await _sqlConnection.QueryAsync<SubCategoria>(query, new
+            {
+                IdCategoria = idCategoria
+            });
+            return resultadoConsulta;
+        }
+
         private async Task verificarProductoExiste(Guid Id)
         {
             ProductoResponse? resultadoConsultaProducto = await Obtener(Id);

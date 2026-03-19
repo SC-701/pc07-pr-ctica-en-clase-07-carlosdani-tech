@@ -48,4 +48,14 @@ public class ProductoFlujo : IProductoFlujo
         producto.PrecioUSD = await _productoReglas.CalcularPrecioUSD(producto.Precio);
         return producto;
     }
+
+    public Task<IEnumerable<Categoria>> ObtenerCategorias()
+    {
+        return _productoDA.ObtenerCategorias();
+    }
+
+    public Task<IEnumerable<SubCategoria>> ObtenerSubCategorias(Guid idCategoria)
+    {
+        return _productoDA.ObtenerSubCategorias(idCategoria);
+    }
 }

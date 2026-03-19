@@ -1,0 +1,47 @@
+@page "{id:guid}"
+@model EliminarModel
+@{
+    ViewData["Title"] = "Eliminar producto";
+}
+
+<header class="subhead">
+    <div class="container">
+        <div class="masthead-subheading">SC-701: Programación Web Avanzada</div>
+        <div class="masthead-heading text-uppercase">Eliminar producto</div>
+    </div>
+</header>
+
+<section class="page-section bg-light" id="principal">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Eliminar producto</h2>
+            <h3 class="section-subheading text-muted">Confirma la eliminación antes de ejecutar el DELETE.</h3>
+        </div>
+
+        <div class="col-xl-7 col-lg-8 col-md-10 mx-auto">
+            <form method="post">
+                <dl class="row">
+                    <dt class="col-sm-4">Nombre</dt>
+                    <dd class="col-sm-8">@Model.Producto.Nombre</dd>
+
+                    <dt class="col-sm-4">Categoría</dt>
+                    <dd class="col-sm-8">@Model.Producto.Categoria</dd>
+
+                    <dt class="col-sm-4">Subcategoría</dt>
+                    <dd class="col-sm-8">@Model.Producto.SubCategoria</dd>
+
+                    <dt class="col-sm-4">Precio CRC</dt>
+                    <dd class="col-sm-8">@Model.Producto.Precio.ToString("N2")</dd>
+
+                    <dt class="col-sm-4">Stock</dt>
+                    <dd class="col-sm-8">@Model.Producto.Stock</dd>
+                </dl>
+
+                <div class="form-group">
+                    <a class="btn btn-primary" asp-page="./Index">Cancelar</a>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -52,6 +52,8 @@ namespace API.Controllers
         public async Task<IActionResult> Obtener([FromRoute] Guid Id)
         {
             var resultado = await _productoFlujo.Obtener(Id);
+            if (resultado == null)
+                return NotFound();
             return Ok(resultado);
         }
     }
